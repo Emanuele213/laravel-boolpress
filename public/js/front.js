@@ -5203,6 +5203,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5212,9 +5224,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var _this = this;
-    axios.get('/api/posts/random').then(function (response) {
-      return _this.arrRandom = response.data.results;
-    });
+    setTimeout(function () {
+      axios.get('/api/posts/random').then(function (response) {
+        return _this.arrRandom = response.data.results;
+      });
+    }, 1.4 * 1000);
   }
 });
 
@@ -5246,6 +5260,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 // TODO: gestire la 404 dei post non esistenti
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5257,9 +5276,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var _this = this;
-    axios.get('/api/posts/' + this.slug).then(function (response) {
-      return _this.objPost = response.data.results;
-    });
+    setTimeout(function () {
+      axios.get('/api/posts/' + _this.slug).then(function (response) {
+        return _this.objPost = response.data.results;
+      });
+    }, 1.4 * 1000);
   }
 });
 
@@ -5328,6 +5349,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5344,7 +5375,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.changePage(1);
+    var _this2 = this;
+    setTimeout(function () {
+      _this2.changePage(1);
+    }, 1.4 * 1000);
     //:class="{disabled: results.current_page == results.last_page}" metodo 1 per togliere il bottone
   }
 });
@@ -10708,7 +10742,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".grid[data-v-13e03f97] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  height: 70vh;\n  margin-top: 3rem;\n  gap: 1rem;\n}\n.tile[data-v-13e03f97] {\n  flex: 0 0 25%;\n  height: 25%;\n  border: 2px solid yellowgreen;\n}\n.tile img[data-v-13e03f97] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".grid[data-v-13e03f97] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  height: 70vh;\n  margin-top: 3rem;\n  gap: 1rem;\n}\n.tile[data-v-13e03f97] {\n  flex: 0 0 25%;\n  height: 25%;\n  border: 2px solid yellowgreen;\n}\n.tile img[data-v-13e03f97] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.loader_container[data-v-13e03f97] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 90vh;\n}\n.spinner[data-v-13e03f97] {\n  width: 44.8px;\n  height: 44.8px;\n  animation: spinner-y0fdc1-data-v-13e03f97 2s infinite ease;\n  transform-style: preserve-3d;\n}\n.spinner > div[data-v-13e03f97] {\n  background-color: rgba(71, 78, 255, 0.2);\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  border: 2.2px solid #474eff;\n}\n.spinner div[data-v-13e03f97]:nth-of-type(1) {\n  transform: translateZ(-22.4px) rotateY(180deg);\n}\n.spinner div[data-v-13e03f97]:nth-of-type(2) {\n  transform: rotateY(-270deg) translateX(50%);\n  transform-origin: top right;\n}\n.spinner div[data-v-13e03f97]:nth-of-type(3) {\n  transform: rotateY(270deg) translateX(-50%);\n  transform-origin: center left;\n}\n.spinner div[data-v-13e03f97]:nth-of-type(4) {\n  transform: rotateX(90deg) translateY(-50%);\n  transform-origin: top center;\n}\n.spinner div[data-v-13e03f97]:nth-of-type(5) {\n  transform: rotateX(-90deg) translateY(50%);\n  transform-origin: bottom center;\n}\n.spinner div[data-v-13e03f97]:nth-of-type(6) {\n  transform: translateZ(22.4px);\n}\n@keyframes spinner-y0fdc1-data-v-13e03f97 {\n0% {\n    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);\n}\n50% {\n    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);\n}\n100% {\n    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10732,7 +10766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tag[data-v-5dfa1ad8] {\n  display: inline-block;\n  margin: 0.3em;\n  padding: 0.4em 0.6em;\n  border-radius: 10em;\n  background-color: greenyellow;\n}\n.text_justify[data-v-5dfa1ad8] {\n  text-align: justify;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".tag[data-v-5dfa1ad8] {\n  display: inline-block;\n  margin: 0.3em;\n  padding: 0.4em 0.6em;\n  border-radius: 10em;\n  background-color: greenyellow;\n}\n.text_justify[data-v-5dfa1ad8] {\n  text-align: justify;\n}\n.loader_container[data-v-5dfa1ad8] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 90vh;\n}\n.progress[data-v-5dfa1ad8] {\n  width: 134.4px;\n  height: 24.6px;\n  border-radius: 22.4px;\n  color: #474bff;\n  border: 2.2px solid;\n  position: relative;\n}\n.progress[data-v-5dfa1ad8]::before {\n  content: \"\";\n  position: absolute;\n  margin: 2.2px;\n  inset: 0 100% 0 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: progress-pf82op-data-v-5dfa1ad8 2s infinite;\n}\n@keyframes progress-pf82op-data-v-5dfa1ad8 {\n100% {\n    inset: 0;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10756,7 +10790,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cursore[data-v-64f4e14b] {\n  cursor: pointer;\n}\n.displayNone[data-v-64f4e14b] {\n  display: none;\n}\na[data-v-64f4e14b] {\n  text-decoration: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cursore[data-v-64f4e14b] {\n  cursor: pointer;\n}\n.displayNone[data-v-64f4e14b] {\n  display: none;\n}\na[data-v-64f4e14b] {\n  text-decoration: none;\n}\n.loader_container[data-v-64f4e14b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 90vh;\n}\n.spinner[data-v-64f4e14b] {\n  width: 44.8px;\n  height: 44.8px;\n  animation: spinner-y0fdc1-data-v-64f4e14b 2s infinite ease;\n  transform-style: preserve-3d;\n}\n.spinner > div[data-v-64f4e14b] {\n  background-color: rgba(71, 78, 255, 0.2);\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  border: 2.2px solid #474eff;\n}\n.spinner div[data-v-64f4e14b]:nth-of-type(1) {\n  transform: translateZ(-22.4px) rotateY(180deg);\n}\n.spinner div[data-v-64f4e14b]:nth-of-type(2) {\n  transform: rotateY(-270deg) translateX(50%);\n  transform-origin: top right;\n}\n.spinner div[data-v-64f4e14b]:nth-of-type(3) {\n  transform: rotateY(270deg) translateX(-50%);\n  transform-origin: center left;\n}\n.spinner div[data-v-64f4e14b]:nth-of-type(4) {\n  transform: rotateX(90deg) translateY(-50%);\n  transform-origin: top center;\n}\n.spinner div[data-v-64f4e14b]:nth-of-type(5) {\n  transform: rotateX(-90deg) translateY(50%);\n  transform-origin: bottom center;\n}\n.spinner div[data-v-64f4e14b]:nth-of-type(6) {\n  transform: translateZ(22.4px);\n}\n@keyframes spinner-y0fdc1-data-v-64f4e14b {\n0% {\n    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);\n}\n50% {\n    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);\n}\n100% {\n    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12361,29 +12395,54 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "grid" },
-    _vm._l(_vm.arrRandom, function (post) {
-      return _c(
-        "div",
-        { key: post.id, staticClass: "tile" },
-        [
-          _c(
-            "router-link",
-            {
-              attrs: { to: { name: "postsShow", params: { slug: post.slug } } },
-            },
-            [_c("img", { attrs: { src: post.image, alt: post.title } })]
-          ),
-        ],
-        1
-      )
-    }),
-    0
-  )
+  return _c("div", [
+    _vm.arrRandom
+      ? _c(
+          "div",
+          { staticClass: "grid" },
+          _vm._l(_vm.arrRandom, function (post) {
+            return _c(
+              "div",
+              { key: post.id, staticClass: "tile" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: { name: "postsShow", params: { slug: post.slug } },
+                    },
+                  },
+                  [_c("img", { attrs: { src: post.image, alt: post.title } })]
+                ),
+              ],
+              1
+            )
+          }),
+          0
+        )
+      : _c("div", { staticClass: "loader_container" }, [_vm._m(0)]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "spinner" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -12406,50 +12465,56 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.objPost
-    ? _c(
-        "div",
-        { staticClass: "container text-center" },
-        [
-          _c("h1", { staticClass: "text-uppercase" }, [
-            _vm._v(_vm._s(_vm.objPost.title)),
-          ]),
-          _vm._v(" "),
-          _c("h2", { staticClass: "my-3" }, [
-            _vm._v("Nella categoria: " + _vm._s(_vm.objPost.category.name)),
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "tags mb-2" },
-            _vm._l(_vm.objPost.tags, function (tag) {
-              return _c("span", { key: tag.id, staticClass: "tag" }, [
-                _vm._v(_vm._s(tag.name)),
-              ])
+  return _c("div", [
+    _vm.objPost
+      ? _c(
+          "div",
+          { staticClass: "container text-center" },
+          [
+            _c("h1", { staticClass: "text-uppercase" }, [
+              _vm._v(_vm._s(_vm.objPost.title)),
+            ]),
+            _vm._v(" "),
+            _c("h2", { staticClass: "my-3" }, [
+              _vm._v("Nella categoria: " + _vm._s(_vm.objPost.category.name)),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "tags mb-2" },
+              _vm._l(_vm.objPost.tags, function (tag) {
+                return _c("span", { key: tag.id, staticClass: "tag" }, [
+                  _vm._v(_vm._s(tag.name)),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("img", {
+              attrs: { src: _vm.objPost.image, alt: _vm.objPost.title },
             }),
-            0
-          ),
-          _vm._v(" "),
-          _c("img", {
-            attrs: { src: _vm.objPost.image, alt: _vm.objPost.title },
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "text_justify my-3" }, [
-            _vm._v("\n        " + _vm._s(_vm.objPost.content) + "\n    "),
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-primary my-4",
-              attrs: { to: { name: "postsIndex" } },
-            },
-            [_vm._v("Torna ai post")]
-          ),
-        ],
-        1
-      )
-    : _vm._e()
+            _vm._v(" "),
+            _c("p", { staticClass: "text_justify my-3" }, [
+              _vm._v(
+                "\n            " + _vm._s(_vm.objPost.content) + "\n        "
+              ),
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-primary my-4",
+                attrs: { to: { name: "postsIndex" } },
+              },
+              [_vm._v("Torna ai post")]
+            ),
+          ],
+          1
+        )
+      : _c("div", { staticClass: "loader_container" }, [
+          _c("div", { staticClass: "progress" }),
+        ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12591,7 +12656,7 @@ var render = function () {
             2
           ),
         ])
-      : _vm._e(),
+      : _c("div", { staticClass: "loader_container" }, [_vm._m(2)]),
   ])
 }
 var staticRenderFns = [
@@ -12609,6 +12674,24 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "page-link cursore" }, [
       _c("a", { attrs: { href: "#indice" } }, [_vm._v("Next")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "spinner" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("div"),
     ])
   },
 ]

@@ -26,7 +26,7 @@ class PostSeeder extends Seeder
                 'category_id'   => $faker->randomElement($categories)->id,
                 'slug'          => Post::getSlug($title),
                 'title'         => $title,
-                'image'         => 'https://picsum.photos/id/'.rand(0, 1000) . '/500/400',
+                'image'         => 'https://picsum.photos/id/'.rand(1, 101) . '/500/400',
                 // 'uploaded_img'  => $img_path,
                 'content'       => $faker->paragraphs(rand(1, 10), true),
                 'excerpt'       => $faker->paragraph(),

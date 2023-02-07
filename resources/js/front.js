@@ -26,13 +26,13 @@ const routes = [
             component: PageAbout, //dare il nome della pagina
         },
         {
-            path: '/post/:slug',
+            path: '/post/:slug',//dare il paramentro
             name: 'postsShow',
             component: PagePost, //dare il nome della pagina
             props: true,
         },
         {
-            path: '/posts', //TODO: dare il paramentro
+            path: '/posts',
             name: 'postsIndex',
             component: PagePosts, //dare il nome della pagina
         },

@@ -34,6 +34,7 @@ Route::middleware('auth')
         Route::resource('tags', 'TagController');
 });
 
+// rotta prende tutti i valori dell'URL
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where('any', ".*")->name('guest.home');

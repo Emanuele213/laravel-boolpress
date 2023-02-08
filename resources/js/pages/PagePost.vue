@@ -1,38 +1,48 @@
 <template>
-    <div>
-        <div v-if="objPost" class="container text-center">
-            <h1 class="text-uppercase">{{ objPost.title }}</h1>
-            <h2 class="my-3">Nella categoria: {{ objPost.category.name }}</h2>
-            <div class="tags mb-2">
-                <span v-for="tag in objPost.tags" :key="tag.id" class="tag">{{ tag.name }}</span>
-            </div>
-            <img :src="objPost.image" :alt="objPost.title">
-            <p class="text_justify my-3">
-                {{ objPost.content }}
-            </p>
-            <router-link :to="{ name:'postsIndex' }" class="btn btn-primary my-4">Torna ai post</router-link>
+    <Page404 v-if="is404"/>
+    <div v-else-if="objPost" class="container text-center">
+        <h1 class="text-uppercase">{{ objPost.title }}</h1>
+        <h2 class="my-3">Nella categoria: {{ objPost.category.name }}</h2>
+        <div class="tags mb-2">
+            <span v-for="tag in objPost.tags" :key="tag.id" class="tag">{{ tag.name }}</span>
         </div>
-        <div v-else class="loader_container">
-            <div class="progress"></div>
-        </div>
+        <img :src="objPost.image" :alt="objPost.title">
+        <p class="text_justify my-3">
+            {{ objPost.content }}
+        </p>
+        <router-link :to="{ name:'postsIndex' }" class="btn btn-primary my-4">Torna ai post</router-link>
+    </div>
+    <div v-else class="loader_container">
+        <div class="progress"></div>
     </div>
 </template>
 
 <script>
+import Page404 from './Page404.vue';
 // TODO: gestire la 404 dei post non esistenti
 export default {
+    components: [
+        Page404,
+    ],
     props: [
         'slug',
     ],
     data() {
         return {
+            is404: false,
             objPost: null,
         }
     },
     created() {
         setTimeout(() => {
             axios.get('/api/posts/' + this.slug)
-                .then(response => this.objPost = response.data.results);
+                .then(response => {
+                    if (response.data.success) {
+                        this.objPost = response.data.results
+                    }else {
+                        this.is404 = true;
+                    }
+                });
         }, 1.4 * 1000);
     }
 }

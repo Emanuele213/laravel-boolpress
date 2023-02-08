@@ -8,6 +8,7 @@ import App from './App.vue';
 import VueRouter from 'vue-router'
 import PageHome from './pages/PageHome';
 import PageAbout from './pages/PageAbout';
+import PageContactus from './pages/PageContactus';
 import PagePost from './pages/PagePost';
 import PagePosts from './pages/PagePosts';
 import Page404 from './pages/Page404';
@@ -24,6 +25,11 @@ const routes = [
             path: '/about',
             name: 'about',
             component: PageAbout, //dare il nome della pagina
+        },
+        {
+            path: '/contact-us',
+            name: 'contactUs',
+            component: PageContactus, //dare il nome della pagina
         },
         {
             path: '/post/:slug',//dare il paramentro

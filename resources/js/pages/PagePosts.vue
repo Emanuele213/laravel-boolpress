@@ -1,13 +1,13 @@
 <template>
  <div>
-    <h1 id="indice">Index dei post</h1>
+    <h1>Index dei post</h1>
     <div v-if="results">
         <div class="row g-3">
             <div v-for="post in results.data" :key="post.id" class="col-sm-6 col-md-4">
                 <div class="card h-100">
                     <img :src="post.image" class="card-img-top" :alt="post.title">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ post.title }}</h5>
+                        <h5 class="card-title text-uppercase">{{ post.title }}</h5>
                         <p class="card-text flex-grow-1">{{ post.excerpt }}</p>
                         <router-link :to="{name: 'postsShow', params: {slug: post.slug}}" class="btn btn-primary">Leggi</router-link>
                     </div>
@@ -18,10 +18,10 @@
                 <ul class="pagination">
                     <li
                         class="page-item"
-                        :class="{displayNone: results.current_page == 1}"
-                        @click="changePage(results.current_page - 1)"
+                        :class="{disabled: results.current_page == 1}"
+                        @click.prevent="changePage(results.current_page - 1)"
                     >
-                        <span class="page-link cursore"><a href="#1">Previous</a></span>
+                        <a class="page-link cursore">Previous</a>
                     </li>
 
                     <li
@@ -29,19 +29,16 @@
                         :key="page"
                         class="page-item"
                         :class="{active: results.current_page == page}"
-                        @click="changePage(page)"
                     >
-                        <span class="page-link cursore" >{{ page }}</span>
+                        <a @click.prevent="changePage(page)" class="page-link cursore" >{{ page }}</a>
                     </li>
 
 
                     <li
                         class="page-item"
-                        :class="{displayNone: results.current_page == results.last_page}"
-
-                        @click="changePage(results.current_page + 1)"
+                        :class="{disabled: results.current_page == results.last_page}"
                     >
-                        <span class="page-link cursore"><a href="#indice">Next</a></span>
+                        <a @click.prevent="changePage(results.current_page + 1)" class="page-link cursore">Next</a>
                     </li>
                 </ul>
             </nav>
@@ -69,15 +66,18 @@ export default {
     },
     methods: {
         changePage(page) {
+            this.isLoading= true,
             axios.get('/api/posts?page=' + page)
-                .then(response => this.results = response.data.results);
+                .then(response => {
+                    this.results = response.data.results;
+                    scrollTo(0,0); //porta sopra
+                });
         }
     },
     created() {
         setTimeout(() => {
             this.changePage(1);
         }, 1.4 * 1000);
-        //:class="{disabled: results.current_page == results.last_page}" metodo 1 per togliere il bottone
     }
 }
 </script>

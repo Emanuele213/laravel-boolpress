@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="grid"  v-if="arrRandom">
+        <div class="grid" v-if="arrRandom">
             <div v-for="post in arrRandom" :key="post.id" class="tile">
                 <router-link :to="{name: 'postsShow', params: {slug: post.slug}}">
                     <img :src="post.image" :alt="post.title">

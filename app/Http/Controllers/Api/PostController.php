@@ -23,14 +23,22 @@ class PostController extends Controller
         ]);
     }
 
-    public function show(post $post)
+    public function show($post)
     {
-        $post = Post::where('id', $post->id)->with(['category', 'tags'])->first();
+        $post = Post::where('slug', $post)->with(['category', 'tags'])->first();
 
-        return response()->json([
-            'success' => true,
-            'results' => $post,
-        ]);
+        if($post) {
+            return response()->json([
+                'success' => true,
+                'results' => $post,
+            ]);
+        }else {
+            return response()->json([
+                'success' => false,
+            ]);
+        }
+
+
     }
 
     public function random() {
